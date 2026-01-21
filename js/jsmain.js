@@ -4,37 +4,51 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const nav = document.querySelector('.nav');
     
-    if (mobileMenuBtn) {
+    if (mobileMenuBtn && nav) {
         mobileMenuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
+            e.stopPropagation(); // Предотвращаем всплытие события
+            
+            // Переключаем классы для кнопки и меню
             this.classList.toggle('active');
             nav.classList.toggle('active');
             
-            // Закрытие меню при клике вне его
+            // Блокируем/разблокируем прокрутку страницы
             if (nav.classList.contains('active')) {
-                document.addEventListener('click', closeMenuOnClickOutside);
+                document.body.style.overflow = 'hidden';
             } else {
-                document.removeEventListener('click', closeMenuOnClickOutside);
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuBtn.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Закрытие меню при клике вне его (на мобильных)
+        document.addEventListener('click', function(e) {
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
+                !mobileMenuBtn.contains(e.target)) {
+                mobileMenuBtn.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Закрытие меню при изменении размера окна (если перешли на десктоп)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mobileMenuBtn.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
     }
-    
-    function closeMenuOnClickOutside(e) {
-        if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            mobileMenuBtn.classList.remove('active');
-            nav.classList.remove('active');
-            document.removeEventListener('click', closeMenuOnClickOutside);
-        }
-    }
-    
-    // Закрытие меню при клике на ссылку внутри меню
-    document.querySelectorAll('.nav__link').forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenuBtn.classList.remove('active');
-            nav.classList.remove('active');
-            document.removeEventListener('click', closeMenuOnClickOutside);
-        });
-    });
     
     // Animate stats counter
     const stats = document.querySelectorAll('.stat__number');
@@ -85,6 +99,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Закрываем мобильное меню после клика на ссылку
+                if (mobileMenuBtn && nav && nav.classList.contains('active')) {
+                    mobileMenuBtn.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             }
         });
     });
@@ -131,55 +152,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Запуск анимации при загрузке
     setTimeout(animateProjectsOnLoad, 300);
     
-    // Добавление эффекта ховера для карточек проектов
-    function addProjectHoverEffects() {
-        const projectCards = document.querySelectorAll('.project-card');
+    // Проверка, мобильное ли устройство
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    
+    // Инициализация для мобильных устройств
+    if (isMobileDevice()) {
+        // Добавляем класс для мобильного устройства
+        document.body.classList.add('mobile-device');
         
-        projectCards.forEach(card => {
-            const image = card.querySelector('.project-card__image');
+        // Улучшаем touch-события
+        document.querySelectorAll('a, button').forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.classList.add('touch-active');
+            });
             
-            if (image) {
-                card.addEventListener('mouseenter', () => {
-                    const img = image.querySelector('img');
-                    if (img) {
-                        img.style.transform = 'scale(1.05)';
-                    }
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    const img = image.querySelector('img');
-                    if (img) {
-                        img.style.transform = 'scale(1)';
-                    }
-                });
-            }
+            element.addEventListener('touchend', function() {
+                this.classList.remove('touch-active');
+            });
         });
     }
-    
-    addProjectHoverEffects();
-    
-    // Улучшенный скролл для мобильных
-    function improveMobileScrolling() {
-        // Предотвращение "подпрыгивания" на iOS
-        document.documentElement.style.scrollBehavior = 'smooth';
-        
-        // Фикс для iOS Safari
-        let lastTouchY = 0;
-        document.addEventListener('touchstart', function(e) {
-            lastTouchY = e.touches[0].clientY;
-        }, { passive: true });
-        
-        document.addEventListener('touchmove', function(e) {
-            const touchY = e.touches[0].clientY;
-            const direction = touchY - lastTouchY;
-            lastTouchY = touchY;
-            
-            // Плавная прокрутка на iOS
-            if (Math.abs(direction) > 10) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-    }
-    
-    improveMobileScrolling();
 });
