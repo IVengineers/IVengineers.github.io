@@ -5,12 +5,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = document.querySelector('.nav');
     
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
             this.classList.toggle('active');
             nav.classList.toggle('active');
+            
+            // Закрытие меню при клике вне его
+            if (nav.classList.contains('active')) {
+                document.addEventListener('click', closeMenuOnClickOutside);
+            } else {
+                document.removeEventListener('click', closeMenuOnClickOutside);
+            }
         });
     }
     
+    function closeMenuOnClickOutside(e) {
+        if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            mobileMenuBtn.classList.remove('active');
+            nav.classList.remove('active');
+            document.removeEventListener('click', closeMenuOnClickOutside);
+        }
+    }
+    
+    // Закрытие меню при клике на ссылку внутри меню
+    document.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenuBtn.classList.remove('active');
+            nav.classList.remove('active');
+            document.removeEventListener('click', closeMenuOnClickOutside);
+        });
+    });
     
     // Animate stats counter
     const stats = document.querySelectorAll('.stat__number');
@@ -43,32 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
         stats.forEach(stat => observer.observe(stat));
     }
     
-    // Form submission
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Здесь будет код для отправки формы
-            // Например, через Fetch API или AJAX
-            
-            // Временный код для демонстрации
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Отправка...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в течение 24 часов.');
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1000);
-        });
-    }
-    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -87,22 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
-                // Close mobile menu if open
-                if (nav && nav.classList.contains('active')) {
-                    mobileMenuBtn.classList.remove('active');
-                    nav.classList.remove('active');
-                }
-                
-                // Если это фильтр проектов, активируем кнопку "Все проекты"
-                if (href === '#projects') {
-                    setTimeout(() => {
-                        const allFilterBtn = document.querySelector('.filter-btn[data-filter="all"]');
-                        if (allFilterBtn && !allFilterBtn.classList.contains('active')) {
-                            allFilterBtn.click();
-                        }
-                    }, 500);
-                }
             }
         });
     });
@@ -176,62 +158,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     addProjectHoverEffects();
     
-    // Add CSS for mobile menu active state
-    const style = document.createElement('style');
-    style.textContent = `
-        .nav.active {
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            z-index: 999;
-        }
+    // Улучшенный скролл для мобильных
+    function improveMobileScrolling() {
+        // Предотвращение "подпрыгивания" на iOS
+        document.documentElement.style.scrollBehavior = 'smooth';
         
-        .nav.active .nav__link {
-            padding: 15px;
-            border-bottom: 1px solid var(--border);
-        }
+        // Фикс для iOS Safari
+        let lastTouchY = 0;
+        document.addEventListener('touchstart', function(e) {
+            lastTouchY = e.touches[0].clientY;
+        }, { passive: true });
         
-        .nav.active .nav__link:last-child {
-            border-bottom: none;
-        }
-        
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-        
-        .nav__link.active {
-            color: var(--primary);
-        }
-        
-        .nav__link.active::after {
-            width: 100%;
-        }
-        
-        /* Стили для фильтра проектов */
-        .project-card {
-            display: flex !important;
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease !important;
-        }
-        
-        .project-card__image img {
-            transition: transform 0.5s ease !important;
-        }
-    `;
-    document.head.appendChild(style);
+        document.addEventListener('touchmove', function(e) {
+            const touchY = e.touches[0].clientY;
+            const direction = touchY - lastTouchY;
+            lastTouchY = touchY;
+            
+            // Плавная прокрутка на iOS
+            if (Math.abs(direction) > 10) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    }
+    
+    improveMobileScrolling();
 });
