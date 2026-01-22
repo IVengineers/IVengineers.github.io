@@ -21,31 +21,35 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a href="/" class="logo">
-                    <span class="logo__main">IV</span>
-                    <span class="logo__sub">Engineers</span>
-                </a>
-                
-                <button class="mobile-menu-btn" aria-label="Открыть меню">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                
-                <nav class="nav">
-                    <a href="#about" class="nav__link">О нас</a>
-                    <a href="#services" class="nav__link">Услуги</a>
-                    <a href="#advantages" class="nav__link">Преимущества</a>
-                    <a href="#clients" class="nav__link">Клиенты</a>
-                    <a href="#technologies" class="nav__link">Технологии</a>
-                    <a href="#projects" class="nav__link">Опыт</a>
-                    <a href="#contact" class="nav__link nav__link--cta">Контакты</a>
-                </nav>
-            </div>
+    <div class="container">
+        <div class="header__inner">
+            <a href="index.html" class="logo">
+                <span class="logo__main">IV</span>
+                <span class="logo__sub">Engineers</span>
+            </a>
+            
+            <button class="mobile-menu-btn" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav">
+    <!-- Кнопка закрытия (только одна!) -->
+    <button class="nav__close" aria-label="Закрыть меню">&times</button>
+    <div class="nav__container">
+        <a href="#about" class="nav__link">О нас</a>
+        <a href="#services" class="nav__link">Услуги</a>
+        <a href="#advantages" class="nav__link">Преимущества</a>
+        <a href="#clients" class="nav__link">Клиенты</a>
+        <a href="#technologies" class="nav__link">Технологии</a>
+        <a href="#projects" class="nav__link">Опыт</a>
+        <a href="#contact" class="nav__link nav__link--cta">Контакты</a>
+    </div>
+</nav>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -56,7 +60,7 @@
                     <span class="hero__title-line hero__title-line--highlight">для промышленности</span>
                 </h1>
                 <p class="hero__subtitle">
-                    Расчеты, проектирование и анализ оборудования для нефтегазовой, химической и энергетической отраслей. Оптимизация работы проектных отделов. Внедрение иженерных ИИ-агентов.
+                    Расчеты, проектирование и анализ оборудования для нефтегазовой, химической и энергетической отраслей. Оптимизация работы проектных отделов. Внедрение инженерных ИИ-агентов.
                 </p>
                 <div class="hero__buttons">
                     <a href="#contact" class="btn btn--primary btn--large">Обсудить проект</a>
@@ -156,7 +160,7 @@
                     <ul class="service-card__list">
                         <li>Теплогидравлические расчеты различного оборудования</li>
                         <li>CFD-моделирование, в том числе сложные многофазные задачи с тепломассообменом и химическими реакциями, горением</li>
-                        <li>Прочностной анализ. Статические и динамические задачи. Сейсмика. Анализ усталостной прочности</li>
+                        <li>Прочностной анализ. Статические и динамические задачи. Сейсмика. Анализ усталостной прочности. Контактные задачи</li>
                         <li>Моделирование технологических процессов</li>
                         <li>Оптимизация конструкций и материалоемкости, расшивка узких мест, повышение эффективности</li>
                         <li>Валидация и верификация</li>
@@ -170,7 +174,7 @@
                         <li>Разработка 3D-моделей оборудования</li>
                         <li>Создание чертежей и деталировок</li>
                         <li>Подготовка документации для производства</li>
-                        <li>Полное соответствие нормативной документации (ГОСТы, ASME) и другим</li>
+                        <li>Полное соответствие нормативной документации (ГОСТы, ASME и др.)</li>
                         <li>Разработка схем технологических процессов (PID, PFD)</li>
                     </ul>
                 </div>
@@ -253,7 +257,7 @@
                     </p>
                     <p class="advantage-card__text">    
                         <br>
-                        Мы говорим на языках менеджера, конструктора, расчётчика, делопроизодителя. Это позволяет нам быстро перестраиваться, понимать суть проблемы с разных сторон и предлагать решение, которое будет удовлетворять всем аспектам инженерной практики.
+                        Мы говорим на языках менеджера, конструктора, расчётчика, делопроизводителя. Это позволяет нам быстро перестраиваться, понимать суть проблемы с разных сторон и предлагать решение, которое будет удовлетворять всем аспектам инженерной практики.
                     </p>
                 </div>
             </div>
@@ -281,84 +285,169 @@
         </div>
     </section>
     
-    <!-- Technologies Section -->
-    <section id="technologies" class="section technologies">
-        <div class="container">
-            <div class="section__header">
-                <h2 class="section__title">Используемые технологии</h2>
-                <p class="section__subtitle">Работаем на современном ПО для точных расчетов</p>
-            </div>
-            
-            <div class="technologies__grid">
-                <div class="tech-category">
-                    <h3 class="tech-category__title">CAD системы</h3>
-                    <div class="tech-list">
-                        <div class="tech-item">
-                            <div class="tech-item__name">КОМПАС-3D</div>
-                            <div class="tech-item__level">
-                                <div class="level-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-item__name">AutoCAD</div>
-                            <div class="tech-item__level">
-                                <div class="level-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-item__name">SolidWorks</div>
-                            <div class="tech-item__level">
-                                <div class="level-bar" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tech-category">
-                    <h3 class="tech-category__title">CAE системы</h3>
-                    <div class="tech-list">
-                        <div class="tech-item">
-                            <div class="tech-item__name">ANSYS</div>
-                            <div class="tech-item__level">
-                                <div class="level-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-item__name">Aspen HYSYS</div>
-                            <div class="tech-item__level">
-                                <div class="level-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-item__name">Aspen EDR</div>
-                            <div class="tech-item__level">
-                                <div class="level-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tech-category">
-                    <h3 class="tech-category__title">Нормативная база</h3>
-                    <div class="tech-list">
-                        <div class="tech-item">
-                            <div class="tech-item__name">ГОСТ 34233</div>
-                            <div class="tech-item__desc">Сосуды под давлением</div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-item__name">ПБ 03-576</div>
-                            <div class="tech-item__desc">Правила устройства сосудов</div>
-                        </div>
-                        <div class="tech-item">
-                            <div class="tech-item__name">ASME BPVC</div>
-                            <div class="tech-item__desc">Международные стандарты</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
+	<!-- Технологии Section - Финальный компактный вариант -->
+	<section id="technologies" class="section technologies">
+		<div class="container">
+			<div class="section__header">
+				<h2 class="section__title">Технологии и инструменты</h2>
+				<p class="section__subtitle">Практический опыт, проверенное инженерное ПО + ИИ-ускорение </p>
+			</div>
+			
+			<div class="technologies__grid">
+				<!-- CAD системы -->
+				<div class="tech-column">
+					<h3 class="tech-column__title">CAD системы</h3>
+					<div class="tech-items">
+						<div class="tech-compact">
+							<div class="tech-compact__name">КОМПАС-3D</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Создание 3D моделей, подготовка чертежей, использование библиотеки стандартных изделий по ГОСТ, ASME</div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">AutoCAD</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Работа с большими сборками, включающими арматуру, сосуды, КИПиА, трубопроводы, металлоконструкции</div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">SolidWorks, Inventor, NanoCAD и др.</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Всё что пожелаете Вы или Заказчик</div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">Ansys Space Claim</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Подготовка качественной геометрии для расчетов в Ansys</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- CAE системы -->
+				<div class="tech-column">
+					<h3 class="tech-column__title">Расчетные и CAE системы</h3>
+					<div class="tech-items">
+						<div class="tech-compact">
+							<div class="tech-compact__name">ANSYS Fluent</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">CFD-моделирование. Качественные сетки согласно критериям, уверенный выбор всех параметров моделей</div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">Aspen HYSYS, EDR</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Моделирование технологических процессов, теплогидравлические расчеты </div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">Ansys Mechanical. Abaqus. Femap</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Прочностной FEA-анализ. Для нестандартных ситуаций</div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">НТП Трубопровод Пассат, СТАРТ. MathСad</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Не боимся расчетов по ГОСТам и аналитических методов. Не используем моделирование там, где есть надежное решение без него </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- ИИ-инструменты -->
+				<div class="tech-column">
+					<h3 class="tech-column__title">ИИ-инструменты</h3>
+					<div class="tech-items">
+						<div class="tech-compact">
+							<div class="tech-compact__name">CAD + ИИ-плагины</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Проверка на соответствие нормам. Исключение ошибок </div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">Языковые модели DeepSeek, ChatGPT и др.</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Современные LLM, обученные на инженерной базе ГОСТов, ТУ. Анализ ТЗ. Быстрое создание объемных тех. документов   </div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">Ассистент GitHub Copilot</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">Программирование Python. Cоздание скриптов для инженерного ПО</div>
+							</div>
+						</div>
+						
+						<div class="tech-compact">
+							<div class="tech-compact__name">ИИ-агенты под конкретные задачи</div>
+							<div class="tech-accelerator" data-speed="100">
+								<div class="accelerator-track">
+									<div class="accelerator-line"></div>
+									<div class="accelerator-arrow"></div>
+								</div>
+								<div class="accelerator-label">API-интеграция с языковыми моделями. Выполение агентом процесса по алгоритму</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
     <!-- Projects Section -->
     <section id="projects" class="section projects">
         <div class="container">
@@ -371,197 +460,234 @@
                 <!-- Проект 1 -->
                 <div class="project-card" data-category="oil-gas">
                     <div class="project-card__image">
-                        <div class="project-image-placeholder">
-                            <span class="placeholder-text">Сепаратор нефти</span>
-                        </div>
+                       <img src="images/projects/heex.jpg" 
+							alt="Кожухотрубный теплообменник" 
+							class="project-image">
                     </div>
                     <div class="project-card__content">
-                        <div class="project-card__category">Нефтегаз</div>
-                        <h3 class="project-card__title">Сепаратор трехфазный для ЛУКОЙЛ</h3>
+                        <div class="project-card__category">Расчеты, анализ, проектирование</div>
+                        <h3 class="project-card__title">Кожухотрубные теплообменники</h3>
                         <p class="project-card__desc">
-                            Проектирование и расчет сепаратора для разделения нефти, газа и воды. 
-                            Оптимизация конструкции позволила увеличить производительность на 40%.
+                            Расчеты и проектирование кожухотрубных теплообменников, испарителей, конденсаторов для различных сред (жидкости, газы, углеводороды, нефтяные фракции, смеси) и процессов (теплообменники охладители/нагреватели, испарители/конденсаторы и др.). Отработка замечаний Заказчика, согласование с проектными институтами. Создание рабочей документации на производство. 
                         </p>
-                        <div class="project-card__details">
-                            <div class="project-detail">
-                                <span class="project-detail__label">Год:</span>
-                                <span class="project-detail__value">2023</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Задача:</span>
-                                <span class="project-detail__value">Замена устаревшего оборудования</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Результат:</span>
-                                <span class="project-detail__value">+40% производительности</span>
-                            </div>
-                        </div>
+                        
+						<div class="project-card__details">
+							<div class="project-meta">
+								<div class="project-detail">
+									<span class="project-detail__label">Задачи:</span>
+									<span class="project-detail__value">Подбор и расчет, оценка и ТКП, проектирование и РКД</span>
+								</div>
+							</div>
+								<div class="project-results">
+									<span class="project-detail__label">Результаты:</span>
+									<div class="results-metrics">
+										<span class="metric-inline">
+											<strong class="metric-number" data-count="300" data-suffix="+">300</strong> теплогидравлических расчетов
+										</span>
+										<span class="metric-inline">
+											<strong class="metric-number" data-count="10" data-suffix="">10</strong> теплообменников спроектировано и поставлено
+										</span>
+									</div>
+								</div>
+						</div>
+						
+						
                     </div>
                 </div>
                 
                 <!-- Проект 2 -->
-                <div class="project-card" data-category="chemical">
+               <div class="project-card" data-category="energy">
                     <div class="project-card__image">
-                        <div class="project-image-placeholder">
-                            <span class="placeholder-text">Реактор для СИБУР</span>
-                        </div>
+                       <img src="images/projects/ejector.jpg" 
+							alt="Пароструйный компрессор" 
+							class="project-image">
                     </div>
                     <div class="project-card__content">
-                        <div class="project-card__category">Химия</div>
-                        <h3 class="project-card__title">Реактор полимеризации для СИБУР</h3>
+                        <div class="project-card__category">CFD-моделирование</div>
+                        <h3 class="project-card__title">Пароструйный компрессор</h3>
                         <p class="project-card__desc">
-                            Разработка конструкции реактора высокого давления. 
-                            Проведен теплотехнический расчет и анализ напряжений.
+                            Детальное CFD-моделирование в Ansys-fluent многофазного течения в пароструйном компрессоре. Построение качественной сетки с учетом критерия Y+.
+            Анализ гидродинамики, определение зон кавитации и вихреобразования, оптимизация геометрии сопла Лаваля. 
                         </p>
-                        <div class="project-card__details">
-                            <div class="project-detail">
-                                <span class="project-detail__label">Год:</span>
-                                <span class="project-detail__value">2022</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Задача:</span>
-                                <span class="project-detail__value">Создание нового производства</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Результат:</span>
-                                <span class="project-detail__value">Запуск в срок</span>
-                            </div>
-                        </div>
+                        
+						<div class="project-card__details">
+							<div class="project-meta">
+								<div class="project-detail">
+									<span class="project-detail__label">Задачи:</span>
+									<span class="project-detail__value">Разработка cfd-модели. Валидация на экспериментальных данных.</span>
+								</div>
+							</div>
+								<div class="project-results">
+									<span class="project-detail__label">Результаты:</span>
+									<div class="results-metrics">
+										<span class="metric-inline">
+										Верификация. Cоответствие экспериментальным данным на <strong class="metric-number" data-count="95" data-suffix="%">95</strong>
+										</span>
+										<span class="metric-inline">
+											<strong class="metric-number" data-count="5" data-suffix="">5</strong> вариантов геометрии проанализировано
+										</span>
+									</div>
+								</div>
+						</div>
                     </div>
                 </div>
-                
-                <!-- Проект 3 -->
-                <div class="project-card" data-category="energy">
+				
+				 <!-- Проект 3 -->
+               <div class="project-card" data-category="energy">
                     <div class="project-card__image">
-                        <div class="project-image-placeholder">
-                            <span class="placeholder-text">Теплообменник Газпром</span>
-                        </div>
+                       <img src="images/projects/agent.jpg" 
+							alt="Агент анализа теплообменников" 
+							class="project-image">
                     </div>
                     <div class="project-card__content">
-                        <div class="project-card__category">Энергетика</div>
-                        <h3 class="project-card__title">Теплообменник для Газпром</h3>
+                        <div class="project-card__category">Оптимизация работы проектного отдела</div>
+                        <h3 class="project-card__title">Автоматизация составления сметы и оценки стоимости оборудования</h3>
                         <p class="project-card__desc">
-                            Расчет и проектирование кожухотрубного теплообменника. 
-                            Анализ теплопередачи и гидравлических потерь.
+                            Разработка для производственной компании программы, которая по ТЗ Заказчика составляет смету компонентов и оценивает стоимость оборудования.  
                         </p>
-                        <div class="project-card__details">
-                            <div class="project-detail">
-                                <span class="project-detail__label">Год:</span>
-                                <span class="project-detail__value">2023</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Задача:</span>
-                                <span class="project-detail__value">Повышение КПД системы</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Результат:</span>
-                                <span class="project-detail__value">Экономия 15% энергии</span>
-                            </div>
-                        </div>
+                        
+						<div class="project-card__details">
+							<div class="project-meta">
+								<div class="project-detail">
+									<span class="project-detail__label">Задача:</span>
+									<span class="project-detail__value">Автоматизировать процесс создания ТКП по входящей заявке на поставку</span>
+								</div>
+							</div>
+								<div class="project-results">
+									<span class="project-detail__label">Результаты:</span>
+									<div class="results-metrics">
+										<span class="metric-inline">
+										Сокращение времени анализа на <strong class="metric-number" data-count="16" data-suffix="+">16</strong> рабочих часов
+										</span>
+										<span class="metric-inline">
+										Высвобождение <strong class="metric-number" data-count="5">5</strong> человек персонала
+										</span>
+									</div>
+								</div>
+						</div>
                     </div>
                 </div>
-                
-                <!-- Проект 4 -->
-                <div class="project-card" data-category="equipment">
+				
+             <!-- Проект 4 -->
+               <div class="project-card" data-category="energy">
                     <div class="project-card__image">
-                        <div class="project-image-placeholder">
-                            <span class="placeholder-text">Емкость ФосАгро</span>
-                        </div>
+                       <img src="images/projects/1.jpg" 
+							alt="Нагреватель воздуха" 
+							class="project-image">
                     </div>
                     <div class="project-card__content">
-                        <div class="project-card__category">Оборудование</div>
-                        <h3 class="project-card__title">Емкость для хранения для ФосАгро</h3>
+                        <div class="project-card__category">Реверс-инжиниринг</div>
+                        <h3 class="project-card__title">Импортный нагреватель воздуха</h3>
                         <p class="project-card__desc">
-                            Проектирование вертикальной цилиндрической емкости. 
-                            Расчет на прочность и устойчивость.
+                            Разработка технического решения замены парового нагревателя воздуха зарубежного производства.
                         </p>
-                        <div class="project-card__details">
-                            <div class="project-detail">
-                                <span class="project-detail__label">Год:</span>
-                                <span class="project-detail__value">2021</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Задача:</span>
-                                <span class="project-detail__value">Увеличение объема хранения</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Результат:</span>
-                                <span class="project-detail__value">+5000 м³ емкости</span>
-                            </div>
-                        </div>
+                        
+						<div class="project-card__details">
+							<div class="project-meta">
+								<div class="project-detail">
+									<span class="project-detail__label">Задача:</span>
+									<span class="project-detail__value">Разбор зарубежной технической документации, проверочные теплогидравлические расчеты, разработка РКД</span>
+								</div>
+							</div>
+								<div class="project-results">
+									<span class="project-detail__label">Результаты:</span>
+									<div class="results-metrics">
+										<span class="metric-inline">
+										Совпадение технических характеристик с оригиналом на <strong class="metric-number" data-count="99" data-suffix="%">99</strong>
+										</span>
+										<span class="metric-inline">
+										<strong class="metric-number" data-count="3" data-suffix="">3</strong> недели от ТЗ до комплекта РКД.
+										</span>
+									</div>
+								</div>
+						</div>
                     </div>
                 </div>
-                
-                <!-- Проект 5 -->
-                <div class="project-card" data-category="oil-gas">
+				
+			 <!-- Проект 5 -->
+               <div class="project-card" data-category="energy">
                     <div class="project-card__image">
-                        <div class="project-image-placeholder">
-                            <span class="placeholder-text">Колонна Роснефть</span>
-                        </div>
+                       <img src="images/projects/grid.jpg" 
+							alt="Решетка опорная" 
+							class="project-image">
                     </div>
                     <div class="project-card__content">
-                        <div class="project-card__category">Нефтегаз</div>
-                        <h3 class="project-card__title">Ректификационная колонна для Роснефть</h3>
+                        <div class="project-card__category">Прочностной FEA-анализ</div>
+                        <h3 class="project-card__title">Опорная решётка колонного аппарата</h3>
                         <p class="project-card__desc">
-                            Проектирование колонны для разделения нефтепродуктов. 
-                            Гидравлический расчет тарельчатой колонны.
+                            Конечно-элементный анализ несущей решётки колонны, удерживающей засыпаемые керамические шары. Расчет напряжений и деформаций при нагружении засыпкой. Контактные условия на поверхности опирания.
                         </p>
-                        <div class="project-card__details">
-                            <div class="project-detail">
-                                <span class="project-detail__label">Год:</span>
-                                <span class="project-detail__value">2020</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Задача:</span>
-                                <span class="project-detail__value">Модернизация НПЗ</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Результат:</span>
-                                <span class="project-detail__value">Повышение чистоты фракций</span>
-                            </div>
-                        </div>
+                        
+						<div class="project-card__details">
+							<div class="project-meta">
+								<div class="project-detail">
+									<span class="project-detail__label">Задача:</span>
+									<span class="project-detail__value">Проверка прочности решетки</span>
+								</div>
+							</div>
+								<div class="project-results">
+									<span class="project-detail__label">Результаты:</span>
+									<div class="results-metrics">
+										<span class="metric-inline">
+										Запас прочности <strong class="metric-number" data-count="30" data-suffix="%+">30</strong>
+										</span>
+										<span class="metric-inline">
+										Оптимизация конструкции, снижение металлоемкости на<strong class="metric-number" data-count="20" data-suffix="%">20</strong> 
+										</span>
+									</div>
+								</div>
+						</div>
                     </div>
-                </div>
-                
-                <!-- Проект 6 -->
-                <div class="project-card" data-category="chemical">
+                </div>	
+				
+				<!-- Проект 6 -->
+               <div class="project-card" data-category="energy">
                     <div class="project-card__image">
-                        <div class="project-image-placeholder">
-                            <span class="placeholder-text">Система трубопроводов</span>
-                        </div>
+                       <img src="images/projects/avo.gif" 
+							alt="CFD-моделирование нестандартного оребрения пучка " 
+							class="project-image">
                     </div>
                     <div class="project-card__content">
-                        <div class="project-card__category">Химия</div>
-                        <h3 class="project-card__title">Система трубопроводов для Татнефть</h3>
+                        <div class="project-card__category">CFD-моделирование</div>
+                        <h3 class="project-card__title">Оптимизация нестандартного оребрения пучка теплообменных труб</h3>
                         <p class="project-card__desc">
-                            Расчет и проектирование системы трубопроводов для агрессивных сред. 
-                            Анализ на сейсмические нагрузки.
+                            Разработка и оптимизация профиля нестандартного оребрения для трубного пучка кожухотрубного теплообменника. 
+            CFD-моделирование для определения оптимальной геометрии ребер, балансировка теплопередачи и гидравлических потерь.
                         </p>
-                        <div class="project-card__details">
-                            <div class="project-detail">
-                                <span class="project-detail__label">Год:</span>
-                                <span class="project-detail__value">2022</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Задача:</span>
-                                <span class="project-detail__value">Повышение безопасности</span>
-                            </div>
-                            <div class="project-detail">
-                                <span class="project-detail__label">Результат:</span>
-                                <span class="project-detail__value">Сертификация по ГОСТ</span>
-                            </div>
-                        </div>
+                        
+						<div class="project-card__details">
+							<div class="project-meta">
+								<div class="project-detail">
+									<span class="project-detail__label">Задачи:</span>
+									<span class="project-detail__value">Разработать cfd-модель пароструйного компрессора. Провести валидацию на экспериментальных данных. Рассчитать конструкции для иных параметров процесса</span>
+								</div>
+							</div>
+								<div class="project-results">
+									<span class="project-detail__label">Результаты:</span>
+									<div class="results-metrics">
+										<span class="metric-inline">
+										Теплосъем увеличен на <strong class="metric-number" data-count="22" data-suffix="%">22%</strong>
+										</span>
+										<span class="metric-inline">
+											Перепад давления снижен на <strong class="metric-number" data-count="18" data-suffix="%">18%</strong>
+										</span>
+										<span class="metric-inline">
+											Масса ребер уменьшена на <strong class="metric-number" data-count="15" data-suffix="%">15%</strong>
+										</span>
+									</div>
+								</div>
+						</div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="projects__cta">
-                <p class="projects__cta-text">Хотите увидеть больше проектов или обсудить свой?</p>
-                <a href="#contact" class="btn btn--primary">Обсудить проект</a>
-            </div>
+        </div>
+		<div class="projects__cta">
+                <p class="projects__cta-text">Хотите увидеть больше проектов, узнать детали или обсудить свою задачу?</p>
+                <a href="#contact" class="btn btn--primary">Свяжитесь с нами</a>
         </div>
     </section>
     
+	  
+	
     <!-- CTA Section -->
     <section id="contact" class="section cta">
         <div class="container">
@@ -590,7 +716,7 @@
                     <div class="contact-item">
                         <div class="contact-item__icon">🕐</div>
                         <div class="contact-item__text">
-                            <div>Назначим констультацию</div>
+                            <div>Назначим консультацию</div>
                             <div>в удобное для Вас время</div>
                         </div>
                     </div>
